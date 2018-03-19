@@ -7,55 +7,55 @@ This section describes how the Tampermonkey API can be used and what is differen
 
 ### Userscript Header
 
-[@name](#@name)
-[@namespace](#@namespace)
-[@version](#@version)
-[@author](#@author)
-[@description](#@description)
-[@homepage, @homepageURL, @website and @source](#@homepage, @homepageURL, @website and @source)
-[@icon, @iconURL and @defaulticon](#@icon, @iconURL and @defaulticon)
-[@icon64 and @icon64URL](#@icon64 and @icon64URL)
-[@updateURL](#@updateURL)
-[@downloadURL](#@downloadURL)
-[@supportURL](#@supportURL)
-[@include](#@include)
-[@match](#@match)
-[@exclude](#@exclude)
-[@require](#@require)
-[@resource](#@resource)
-[@connect](#@connect)
-[@run-at](#@run-at)
-[@grant](#@grant)
-[@noframes](#@noframes)
-[@unwrap](#@unwrap)
-[@nocompat](#@nocompat)
+@name  
+@namespace  
+@version  
+@author  
+@description  
+@homepage, @homepageURL, @website and @source  
+@icon, @iconURL and @defaulticon  
+@icon64 and @icon64URL  
+@updateURL  
+@downloadURL  
+@supportURL  
+@include  
+@match  
+@exclude  
+@require  
+@resource  
+@connect  
+@run-at  
+@grant  
+@noframes  
+@unwrap  
+@nocompat  
 
 ### Application Programming Interface
 
-[unsafeWindow](#unsafeWindow)
-[Subresource Integrity](#Subresource Integrity)
-[GM_addStyle(css)](#GM_addStyle(css))
-[GM_deleteValue(name)](#GM_deleteValue(name))
-[GM_listValues()](#GM_listValues())
-[GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {})](#GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {}))
-[GM_removeValueChangeListener(listener_id)](#GM_removeValueChangeListener(listener_id))
-[GM_setValue(name, value)](#GM_setValue(name, value))
-[GM_getValue(name, defaultValue)](#GM_getValue(name, defaultValue))
-[GM_log(message)](#GM_log(message))
-[GM_getResourceText(name)](#GM_getResourceText(name))
-[GM_getResourceURL(name)](#GM_getResourceURL(name))
-[GM_registerMenuCommand(name, fn, accessKey)](#GM_registerMenuCommand(name, fn, accessKey))
-[GM_unregisterMenuCommand(menuCmdId)](#GM_unregisterMenuCommand(menuCmdId))
-[GM_openInTab(url, options), GM_openInTab(url, loadInBackground)](#GM_openInTab(url, options), GM_openInTab(url, loadInBackground))
-[GM_xmlhttpRequest(details)](#GM_xmlhttpRequest(details))
-[GM_download(details), GM_download(url, name)](#GM_download(details), GM_download(url, name))
-[GM_getTab(cb)](#GM_getTab(cb))
-[GM_saveTab(tab)](#GM_saveTab(tab))
-[GM_getTabs(cb)](#GM_getTabs(cb))
-[GM_notification(details, ondone), GM_notification(text, title, image, onclick)](#GM_notification(details, ondone), GM_notification(text, title, image, onclick))
-[GM_setClipboard(data, info)](#GM_setClipboard(data, info))
-[GM_info](#GM info)
-[<><![CDATA[your_text_here]\]\>\<\/\>](#<><![CDATA[your_text_here]\]\>\<\/\)
+unsafeWindow  
+Subresource Integrity  
+GM_addStyle(css)  
+GM_deleteValue(name)  
+GM_listValues()  
+GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {})  
+GM_removeValueChangeListener(listener_id)  
+GM_setValue(name, value)  
+GM_getValue(name, defaultValue)  
+GM_log(message)  
+GM_getResourceText(name)  
+GM_getResourceURL(name)  
+GM_registerMenuCommand(name, fn, accessKey)  
+GM_unregisterMenuCommand(menuCmdId)  
+GM_openInTab(url, options), GM_openInTab(url, loadInBackground)  
+GM_xmlhttpRequest(details)  
+GM_download(details), GM_download(url, name)  
+GM_getTab(cb)  
+GM_saveTab(tab)  
+GM_getTabs(cb)  
+GM_notification(details, ondone), GM_notification(text, title, image, onclick)  
+GM_setClipboard(data, info)  
+GM_info  
+<><![CDATA[your_text_here]]></>  
 
 ## USERSCRIPT HEADER
 
