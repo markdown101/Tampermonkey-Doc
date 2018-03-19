@@ -32,7 +32,7 @@ This section describes how the Tampermonkey API can be used and what is differen
 
 ### Application Programming Interface
 
-unsafeWindow
+[unsafeWindow](#unsafeWindow)
 Subresource Integrity
 GM_addStyle(css)
 GM_deleteValue(name)
