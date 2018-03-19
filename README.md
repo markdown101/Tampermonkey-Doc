@@ -2,9 +2,9 @@
 
 This section describes how the Tampermonkey API can be used and what is different to Geasemonkey.
 
-##CONTENT
+## CONTENT
 
-###Userscript Header
+### Userscript Header
 
 @name
 @namespace
@@ -29,7 +29,7 @@ This section describes how the Tampermonkey API can be used and what is differen
 @unwrap
 @nocompat
 
-###Application Programming Interface
+### Application Programming Interface
 
 unsafeWindow
 Subresource Integrity
@@ -56,43 +56,43 @@ GM_setClipboard(data, info)
 GM_info
 <><![CDATA[your_text_here]]></>
 
-##USERSCRIPT HEADER
+## USERSCRIPT HEADER
 
-###@name
+### @name
 The name of the script.
 
-###@namespace
+### @namespace
 The namespace of the script.
 
-###@version
+### @version
 The script version. This is used for the update check, in case the script is not installed from userscript.org or TM has problems to retrieve the scripts meta data.
 
-###@author
+### @author
 The scripts author.
 
-###@description
+### @description
 A short significant description.
 
-###@homepage, @homepageURL, @website and @source
+### @homepage, @homepageURL, @website and @source
 The authors homepage that is used at the options page to link from the scripts name to the given page. Please note that if the **@namespace** tag starts with 'http://' its content will be used for this too.
 
-###@icon, @iconURL and @defaulticon
+### @icon, @iconURL and @defaulticon
 The script icon in low res.
 
-###@icon64 and @icon64URL
+### @icon64 and @icon64URL
 This scripts icon in 64x64 pixels. If this tag, but **@icon** is given the **@icon** image will be scaled at some places at the options page.
 
-###@updateURL
+### @updateURL
 An update URL for the userscript.
 Note: a @version tag is required to make update checks work.
 
-###@downloadURL
+### @downloadURL
 Defines the URL where the script will be downloaded from when an update was detected. If the value none is used, then no update check will be done.
 
-###@supportURL
+### @supportURL
 Defines the URL where the user can report issues and get personal support.
 
-###@include
+### @include
 The pages on that a script should run. Multiple tag instances are allowed.
 Please note that @include doesn't support the URL hash parameter. Please visit this forum thread for more information: [click](http://forum.tampermonkey.net/viewtopic.php?p=3094#p3094).
 ```
@@ -102,16 +102,15 @@ Please note that @include doesn't support the URL hash parameter. Please visit t
 // @include *
 ```
 
-
-###@match
+### @match
 More or less equal to the **@include** tag. You can get more information [here](http://code.google.com/chrome/extensions/match_patterns.html) .
 Note: the '<all_urls>' statement is not yet supported and the scheme part also accepts 'http\*://'.
 Multiple tag instances are allowed.
-###@exclude
+### @exclude
 Exclude URLs even it they are included by **@include** or **@match** .
 Multiple tag instances are allowed.
 
-###@require
+### @require
 Points to a JavaScript file that is loaded and executed before the script itself starts running.
 Note: the scripts loaded via **@require** and their "use strict" statements might influence the userscript's strict mode!
 ```
@@ -121,7 +120,7 @@ Note: the scripts loaded via **@require** and their "use strict" statements migh
 ```
 Please check the [sub-resource integrity](http://tampermonkey.net/documentation.php?ext=dhdg&locale=en#Subresource_Integrity) section for more information how to ensure integrity. Multiple tag instances are allowed.
 
-###@resource
+### @resource
 Preloads resources that can by accessed via GM_getResourceURL and GM_getResourceText by the script.
 ```
 // @resource icon1 http://tampermonkey.net/favicon.ico
@@ -133,7 +132,7 @@ Preloads resources that can by accessed via GM_getResourceURL and GM_getResource
 ```
 Please check the [sub-resource integrity](http://tampermonkey.net/documentation.php?ext=dhdg&locale=en#Subresource_Integrity) section for more information how to ensure integrity. Multiple tag instances are allowed.
 
-###@connect
+### @connect
 This tag defines the domains (no top-level domains) including subdomains which are allowed to be retrieved by GM_xmlhttpRequest
 ```
 // @connect <value>
@@ -181,7 +180,7 @@ The script will be injected after the DOMContentLoaded event was dispatched.
 The script will be injected if it is clicked at the browser context menu (desktop Chrome-based browsers only).
 Note: all **@include** and **@exclude** statements will be ignored if this value is used, but this may change in the future.
 
-###@grant
+### @grant
 @grant is used to whitelist GM_* functions, the unsafeWindow object and some powerful window functions. If no @grant tag is given TM guesses the scripts needs.
 ```
 // @grant GM_setValue
@@ -198,13 +197,13 @@ If @grant is followed by 'none' the sandbox is disabled and the script will run 
 // @grant none
 ```
 
-###@noframes
+### @noframes
 This tag makes the script running on the main pages, but not at iframes.
 
-###@unwrap
+### @unwrap
 This tag is ignored because, it is not needed at Google Chrome/Chromium.
 
-###@nocompat
+### @nocompat
 At the moment TM tries to detect whether a script was written in knowledge of Google Chrome/Chromium by looking for the **@match** tag, but not every script uses it. That's why TM supports this tag to disable all optimizations that might be necessary to run scripts written for Firefox/Greasemonkey. To keep this tag extensible you can to add the browser name that can be handled by the script.
 ```
 // @nocompat Chrome
@@ -212,10 +211,10 @@ At the moment TM tries to detect whether a script was written in knowledge of Go
 
 ##APPLICATION PROGRAMMING INTERFACE
 
-###unsafeWindow
+### unsafeWindow
 The unsafeWindow object provides full access to the pages javascript functions and variables.
 
-###Subresource Integrity
+### Subresource Integrity
 The hash component of the URL of **@resource** and **@require** tags can be used for this purpose.
 ```
 // @resource SRIsecured1 http://tampermonkey.net/favicon1.ico#md5=ad34bb...
@@ -225,53 +224,53 @@ The hash component of the URL of **@resource** and **@require** tags can be used
 ```
 TM supports MD5 hashes as a fallback natively, all other (SHA-1, SHA-256, SHA-384 and SHA-512) depend on [window.crypto](https://developer.mozilla.org/en-US/docs/Web/API/Crypto). In case multiple hashes (separated by comma or semicolon) are given the last currently supported one is used by TM. If the content of the external resource doesn't match the selected hash, then the resource is not delivered to the userscript.
 
-###GM_addStyle(css)
+### GM_addStyle(css)
 Adds the given style to the document and returns the injected style element.
 
-###GM_deleteValue(name)
+### GM_deleteValue(name)
 Deletes 'name' from storage.
 
-###GM_listValues()
+### GM_listValues()
 List all names of the storage.
 
-###GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {})
+### GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {})
 Adds a change listener to the storage and returns the listener ID. 
 'name' is the name of the observed variable. 
 The 'remote' argument of the callback function shows whether this value was modified from the instance of another tab (true) or within this script instance (false). 
 Therefore this functionality can be used by scripts of different browser tabs to communicate with each other.
 
-###GM_removeValueChangeListener(listener_id)
+### GM_removeValueChangeListener(listener_id)
 Removes a change listener by its ID.
 
-###GM_setValue(name, value)
+### GM_setValue(name, value)
 Set the value of 'name' to the storage.
 
-###GM_getValue(name, defaultValue)
+### GM_getValue(name, defaultValue)
 Get the value of 'name' from storage.
 
-###GM_log(message)
+### GM_log(message)
 Log a message to the console.
 
-###GM_getResourceText(name)
+### GM_getResourceText(name)
 Get the content of a predefined @resource tag at the script header.
 
-###GM_getResourceURL(name)
+### GM_getResourceURL(name)
 Get the base64 encoded URI of a predefined @resource tag at the script header.
 
-###GM_registerMenuCommand(name, fn, accessKey)
+### GM_registerMenuCommand(name, fn, accessKey)
 Register a menu to be displayed at the Tampermonkey menu at pages where this script runs and returns a menu command ID.
 
-###GM_unregisterMenuCommand(menuCmdId)
+### GM_unregisterMenuCommand(menuCmdId)
 Unregister a menu command that was previously registered by GM_registerMenuCommand with the given menu command ID.
 
-###GM_openInTab(url, options), GM_openInTab(url, loadInBackground)
+### GM_openInTab(url, options), GM_openInTab(url, loadInBackground)
 Open a new tab with this url. The options object can have the following properties:
 - active decides whether the new tab should be focused,
 - insert that inserts the new tab after the current one and
 - setParent makes the browser re-focus the current tab on close.
 Otherwise the new tab is just appended. **loadInBackground** has the opposite meaning of **active** and was added to achieve Greasemonkey 3.x compatibility. If neither **active** nor **loadInBackground** is given, then the tab will not be focused. This function returns an object with the function **close**, the listener **onclosed** and a flag called **closed**.
 
-###GM_xmlhttpRequest(details)
+### GM_xmlhttpRequest(details)
 Make an xmlHttpRequest.
 Property of details:
 - **method** one of GET, HEAD, POST
@@ -301,7 +300,7 @@ Returns an object with the following property:
 **Note**: the **synchronous** flag at the details is not supported
 **Important**: if you want to use this method the please also check the documentation about @connect.
 
-###GM_download(details), GM_download(url, name)
+### GM_download(details), GM_download(url, name)
 Downloads a given URL to the local disk.
 details can have the following attributes:
 - **url** - the URL from where the data should be downloaded
@@ -325,16 +324,16 @@ The download argument of the onerror callback can have the following attributes:
 - **abort** - function to be called to cancel this download
 Depending on the download mode GM_info provides a property called downloadMode which is set to one of the following values: **native**, **disabled** or **browser**.
 
-###GM_getTab(cb)
+### GM_getTab(cb)
 Get a object that is persistent as long as this tab is open.
 
-###GM_saveTab(tab)
+### GM_saveTab(tab)
 Save the tab object to reopen it after a page unload.
 
-###GM_getTabs(cb)
+### GM_getTabs(cb)
 Get all tab objects as a hash to communicate with other script instances.
 
-###GM_notification(details, ondone), GM_notification(text, title, image, onclick)
+### GM_notification(details, ondone), GM_notification(text, title, image, onclick)
 Shows a HTML5 Desktop notification and/or highlight the current tab.
 details can have the following attributes:
 - **text** - the text of the notification (optional if highlight is set)
@@ -346,10 +345,10 @@ details can have the following attributes:
 - **onclick** - called in case the user clicks the notification (optional)
 All parameters do exactly the same like their corresponding details property pendant.
 
-###GM_setClipboard(data, info)
+### GM_setClipboard(data, info)
 Copies data into the clipboard. The parameter 'info' can be an object like "{ type: 'text', mimetype: 'text/plain'}" or just a string expressing the type ("text" or "html").
 
-###GM_info
+### GM_info
 Get some info about the script and TM. The object might look like this:
 ```
 Object+
@@ -399,5 +398,5 @@ Object+
 ---> version: "4.0.25"
 ```
 
-###<><![CDATA[your_text_here]]></>
+### <><![CDATA[your_text_here]]></>
 Tampermonkey supports this way of storing meta data. TM tries to automatically detect whether a script needs this compatibility option to be enabled.
