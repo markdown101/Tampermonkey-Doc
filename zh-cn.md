@@ -5,53 +5,97 @@
 ### 用户标题头
 
 @name
+
 @namespace
+
 @version
+
 @author
+
 @description
+
 @homepage, @homepageURL, @website and @source
+
 @icon, @iconURL and @defaulticon
+
 @icon64 and @icon64URL
+
 @updateURL
+
 @downloadURL
+
 @supportURL
+
 @include
+
 @match
+
 @exclude
+
 @require
+
 @resource
+
 @connect
+
 @run-at
+
 @grant
+
 @noframes
+
 @unwrap
+
 @nocompat
 
 ### 应用程序接口
 
 unsafeWindow
+
 Subresource Integrity
+
 GM_addStyle(css)
+
 GM_deleteValue(name)
+
 GM_listValues()
+
 GM_addValueChangeListener(name, function(name, old_value, new_value, remote) {})
+
 GM_removeValueChangeListener(listener_id)
+
 GM_setValue(name, value)
+
 GM_getValue(name, defaultValue)
+
 GM_log(message)
+
 GM_getResourceText(name)
+
 GM_getResourceURL(name)
+
 GM_registerMenuCommand(name, fn, accessKey)
+
 GM_unregisterMenuCommand(menuCmdId)
+
 GM_openInTab(url, options), GM_openInTab(url, loadInBackground)
+
 GM_xmlhttpRequest(details)
+
 GM_download(details), GM_download(url, name)
+
 GM_getTab(cb)
+
 GM_saveTab(tab)
+
 GM_getTabs(cb)
+
 GM_notification(details, ondone), GM_notification(text, title, image, onclick)
+
 GM_setClipboard(data, info)
+
 GM_info
+
 <><![CDATA[your_text_here]]></>
 
 ## 用户标题头
@@ -144,7 +188,7 @@ GM_info
 - 1.2.3.4 连接到一个IP地址
 - \*
 如果无法声明所有域可以连接到一个userscript，那么这是一个很好的做法，可以执行以下操作：
-**声明所有已知或至少所有可**能由脚本连接的**公共域**。这样，大多数用户可以避免确认对话框。
+**声明所有已知或至少所有**可能由脚本连接的**公共域**。这样，大多数用户可以避免确认对话框。
 
 另外在脚本中添加“@connect \*”。通过这样做，Tampermonkey仍然会询问用户是否允许未提及的域的下一个连接，但也提供了“始终允许所有域”按钮。如果用户点击此按钮，则所有未来的请求将被自动允许。
 
