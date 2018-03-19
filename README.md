@@ -7,7 +7,7 @@ This section describes how the Tampermonkey API can be used and what is differen
 
 ### Userscript Header
 
-[@name](# @name)
+[@name](#@name)
 @namespace
 @version
 @author
