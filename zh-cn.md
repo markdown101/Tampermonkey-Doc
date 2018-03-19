@@ -96,7 +96,7 @@ GM_setClipboard(data, info)
 
 GM_info
 
-<><![CDATA[your_text_here]]></>
+<>\<\!\[CDATA\[your_text_here\]\]\></>  
 
 ## 用户标题头
 
